@@ -1,0 +1,14 @@
+services:
+  homeos:
+    image: ghcr.io/tammo2701/labhub:latest
+    container_name: homeos
+    restart: unless-stopped
+    ports:
+      - "4283:4283"
+    env_file:
+      - .env
+    environment:
+      - PORT=4283
+    # Fuer die geplante Docker-Integration (Container-Uebersicht) noetig:
+    # volumes:
+    #   - /var/run/docker.sock:/var/run/docker.sock:ro
