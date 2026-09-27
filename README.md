@@ -1,37 +1,44 @@
 # HomeOS
 
-HomeOS ist eine zentrale Startseite und Verwaltungsoberflaeche fuer
-Self-Hosted-Server. Es laeuft als einzelner Docker-Container und ist
-standardmaessig unter Port **4283** erreichbar.
+HomeOS is a central homepage and management dashboard for self-hosted
+servers. It runs as a single Docker container and is reachable on
+port **4283** by default.
 
-> Status: fruehes Entwicklungsstadium. Das Grundgeruest (App, Docker-Setup,
-> CI/CD) steht; die meisten Integrationen sind aktuell nur als Platzhalter
-> im Dashboard sichtbar (siehe Roadmap unten).
+> Status: early development. The scaffold (app, Docker setup, CI/CD,
+> i18n) is in place; most integrations are currently only placeholders
+> in the dashboard (see roadmap below).
+
+## Languages
+
+The UI is available in German (`/de`) and English (`/en`), with more
+locales easy to add (see `src/dictionaries/`). The default locale is
+detected from the browser's `Accept-Language` header, falling back to
+German.
 
 ## Features
 
-| Modul | Status |
+| Module | Status |
 |---|---|
-| Dashboards | Aktiv |
-| Service-Kacheln | Aktiv |
-| Docker Integration | Geplant |
-| Beszel Integration | Geplant |
-| System Monitoring | Geplant |
-| NAS / Storage Uebersicht | Geplant |
-| Netzwerkgeraete | Geplant |
-| Benachrichtigungen | Geplant |
-| Plugins | Geplant |
+| Dashboards | Live |
+| Service Tiles | Live |
+| Docker Integration | Planned |
+| Beszel Integration | Planned |
+| System Monitoring | Planned |
+| NAS / Storage overview | Planned |
+| Network devices | Planned |
+| Notifications | Planned |
+| Plugins | Planned |
 
-## Schnellstart (Docker Compose)
+## Quick start (Docker Compose)
 
 ```bash
 cp .env.example .env
 docker compose up -d
 ```
 
-Danach ist HomeOS unter `http://localhost:4283` erreichbar.
+HomeOS will then be available at `http://localhost:4283`.
 
-## Manuelles Docker-Image
+## Manual Docker image
 
 ```bash
 docker run -d \
@@ -41,30 +48,30 @@ docker run -d \
   ghcr.io/tammo2701/labhub:latest
 ```
 
-## Lokale Entwicklung
+## Local development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Die App laeuft dann unter `http://localhost:4283`.
+The app then runs at `http://localhost:4283`.
 
-## Multi-Architecture
+## Multi-architecture
 
-Die Docker-Images werden fuer `linux/amd64` und `linux/arm64` gebaut, damit
-HomeOS auch auf typischen Home-Servern, NAS-Systemen (z. B. Synology,
-QNAP) und ARM-Geraeten (z. B. Raspberry Pi) laeuft.
+Docker images are built for `linux/amd64` and `linux/arm64`, so HomeOS
+also runs on typical home servers, NAS systems (e.g. Synology, QNAP)
+and ARM devices (e.g. Raspberry Pi).
 
 ## CI/CD
 
-- **Pull Requests** (`ci.yml`): Install, Typecheck, Lint, Build, Docker-Build-Test
-  (kein Image-Push).
-- **Push auf `main`** (`docker.yml`): Multi-Arch-Image wird gebaut und nach
-  `ghcr.io/tammo2701/labhub` gepusht (`:latest`, `:main`, `:<sha>`).
-- **Git-Tags** (`vX.Y.Z`): zusaetzlich wird ein versioniertes Image
-  (`:vX.Y.Z`) veroeffentlicht.
+- **Pull requests** (`ci.yml`): install, typecheck, lint, build,
+  Docker build test (no image push).
+- **Push to `main`** (`docker.yml`): a multi-arch image is built and
+  pushed to `ghcr.io/tammo2701/labhub` (`:latest`, `:main`, `:<sha>`).
+- **Git tags** (`vX.Y.Z`): additionally publishes a versioned image
+  (`:vX.Y.Z`).
 
-## Lizenz
+## License
 
-MIT, siehe [LICENSE](./LICENSE).
+MIT, see [LICENSE](./LICENSE).

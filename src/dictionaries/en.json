@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "HomeOS",
+    "description": "Central homepage and management dashboard for self-hosted servers"
+  },
+  "home": {
+    "heading": "HomeOS",
+    "subheading": "Central homepage and management dashboard for your self-hosted server."
+  },
+  "status": {
+    "live": "Live",
+    "planned": "Planned"
+  },
+  "modules": {
+    "dashboards": { "title": "Dashboards", "description": "Multiple freely configurable views for your servers." },
+    "tiles": { "title": "Service Tiles", "description": "Quick access to all your self-hosted services." },
+    "docker": { "title": "Docker Integration", "description": "Container overview and control via the Docker API." },
+    "beszel": { "title": "Beszel Integration", "description": "Bring in system metrics straight from Beszel." },
+    "monitoring": { "title": "System Monitoring", "description": "Keep an eye on CPU, RAM, disk and network across your hosts." },
+    "nas": { "title": "NAS / Storage", "description": "See your NAS storage and shares at a glance." },
+    "network": { "title": "Network Devices", "description": "Overview of devices on your home network." },
+    "notifications": { "title": "Notifications", "description": "Central alerts for all connected services." },
+    "plugins": { "title": "Plugins", "description": "Extensible through your own plugins." }
+  }
+}

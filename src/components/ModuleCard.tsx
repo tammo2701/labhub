@@ -4,10 +4,12 @@ export function ModuleCard({
   title,
   description,
   status,
+  statusLabel,
 }: {
   title: string;
   description: string;
   status: Status;
+  statusLabel: string;
 }) {
   return (
     <div className="rounded-xl border border-white/10 bg-panel p-5 flex flex-col gap-2">
@@ -20,7 +22,7 @@ export function ModuleCard({
               : "bg-white/10 text-white/60"
           }`}
         >
-          {status === "live" ? "Aktiv" : "Geplant"}
+          {statusLabel}
         </span>
       </div>
       <p className="text-sm text-white/60">{description}</p>
